@@ -1,4 +1,4 @@
-package com.slickbois.demo.clothes;
+package com.slickbois.demo.clothes.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
