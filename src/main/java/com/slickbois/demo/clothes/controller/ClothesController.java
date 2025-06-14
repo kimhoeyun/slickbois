@@ -1,5 +1,6 @@
 package com.slickbois.demo.clothes.controller;
 
+import com.slickbois.demo.clothes.dto.EditClothesRequest;
 import com.slickbois.demo.clothes.model.Clothes;
 import com.slickbois.demo.clothes.dto.ClothesRequest;
 import com.slickbois.demo.clothes.service.ClothesService;
@@ -18,5 +19,11 @@ public class ClothesController {
     public ResponseEntity<Clothes> registerClothes(@RequestBody ClothesRequest request) {
         Clothes saved = clothesService.saveClothes(request);
         return ResponseEntity.ok(saved);
+    }
+
+    @PostMapping("/edit")
+    public ResponseEntity<Void> editClothes(@RequestBody EditClothesRequest request) {
+        clothesService.modifyClothes(request);
+        return ResponseEntity.ok().build();
     }
 }
