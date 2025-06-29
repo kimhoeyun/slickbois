@@ -31,6 +31,11 @@ public class ClothesController {
         return ResponseEntity.ok().build();
     }
 
+    @DeleteMapping("/delete/{clothesId}")
+    public ResponseEntity<Void> deleteClothes(@PathVariable Long clothesId) {
+        clothesService.deleteClothes(clothesId);
+        return ResponseEntity.ok().build();
+    }
 
     @GetMapping("/detail/{clothesId}")
     public ResponseEntity<ClothesResponse> getClothes(@PathVariable Long clothesId) {

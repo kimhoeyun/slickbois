@@ -48,6 +48,12 @@ public class ClothesService {
         clothesRepository.save(clothes);
     }
 
+
+    @Transactional
+    public void deleteClothes(Long id) {
+        clothesRepository.deleteById(id);
+    }
+
     public Clothes getClothes(Long clothesId) {
         return clothesRepository.findById(clothesId).get();
     }
