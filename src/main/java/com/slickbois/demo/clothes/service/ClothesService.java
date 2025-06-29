@@ -54,6 +54,14 @@ public class ClothesService {
         clothesRepository.deleteById(id);
     }
 
+    public List<ClothesListResponse> getClothesList() {
+        List<Clothes> clothesList = clothesRepository.findAll();
+
+        return clothesList.stream()
+                .map(clothes -> new ClothesListResponse(clothes.getClothName(), clothes.getPrice()))
+                .collect(Collectors.toList());
+    }
+
     public Clothes getClothes(Long clothesId) {
         return clothesRepository.findById(clothesId).get();
     }

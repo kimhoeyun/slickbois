@@ -37,6 +37,13 @@ public class ClothesController {
         return ResponseEntity.ok().build();
     }
 
+    @GetMapping("/list")
+    public ResponseEntity<List<ClothesListResponse>> getClothesList() {
+        List<ClothesListResponse> clothesList = clothesService.getClothesList();
+        return ResponseEntity.ok(clothesList);
+    }
+
+
     @GetMapping("/detail/{clothesId}")
     public ResponseEntity<ClothesResponse> getClothes(@PathVariable Long clothesId) {
         Clothes clothes = clothesService.getClothes(clothesId);
